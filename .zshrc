@@ -27,3 +27,15 @@ if [[ -z $TMUX ]]; then
         exec tmux new-session -s TMUX
     fi
 fi
+
+fuzzy_find() {
+    local selected=$(find $HOME -mindepth 1 -maxdepth 1 -not -path "$HOME/.*" -type d -exec basename {} \; | fzf)
+
+    if [[ -z $selected ]]; then
+        return 1
+    else
+        cd "$HOME/$selected"
+    fi
+}
+
+bindkey -s "^f" "fuzzy_find; clear\n"

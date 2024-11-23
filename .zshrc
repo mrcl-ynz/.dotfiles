@@ -19,3 +19,11 @@ if command -v nvim > /dev/null; then
 else
     export EDITOR="vi"
 fi
+
+if [[ -z $TMUX ]]; then
+    if pgrep tmux; then
+        exec tmux attach -t TMUX
+    else
+        exec tmux new-session -s TMUX
+    fi
+fi

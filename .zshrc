@@ -22,9 +22,9 @@ fi
 
 if [[ -z $TMUX ]]; then
     if pgrep tmux; then
-        exec tmux attach -t TMUX
+        tmux attach -t TMUX
     else
-        exec tmux new-session -s TMUX
+        tmux new-session -s TMUX
     fi
 fi
 

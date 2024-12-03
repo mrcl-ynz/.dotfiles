@@ -21,11 +21,7 @@ else
 fi
 
 if [[ -z $TMUX ]]; then
-    if pgrep tmux; then
-        tmux attach -t TMUX
-    else
-        tmux new-session -s TMUX
-    fi
+        tmux attach -t TMUX || tmux new-session -s TMUX
 fi
 
 fuzzy_find() {

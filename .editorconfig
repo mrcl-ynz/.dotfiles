@@ -1,0 +1,17 @@
+root = true
+
+[*]
+charset = utf-8
+indent_style = space
+indent_size = 4
+
+[Makefile]
+indent_style = tab
+
+[*.{cpp,h}]
+indent_style = space
+indent_size = 2
+
+[*.{json,yaml}]
+indent_style = space
+indent_size = 2

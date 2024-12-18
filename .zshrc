@@ -15,3 +15,11 @@ if command -v nvim > /dev/null; then
 else
     export EDITOR="vi"
 fi
+
+fuzzy_find() {
+    local query=($HOME -maxdepth 1 -mindepth 1 -not -path "$HOME/.*")
+
+    cd $(find $query[@] | fzf)
+}
+
+bindkey -s "^f" "fuzzy_find\n^l"
